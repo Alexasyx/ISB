@@ -14,14 +14,14 @@ function createExplosion() {
     for (let i = 0; i < 16; i++) {
         let fragment = document.createElement('div');
         fragment.classList.add('fragment');
-        let angle = Math.random() * 2 * Math.PI;
-        let distance = Math.random() * 200 + 50;
+        let angle = (i / 16) * (2 * Math.PI);
+        let distance = Math.random() * 100 + 50;
         fragment.style.setProperty('--x', `${Math.cos(angle) * distance}px`);
         fragment.style.setProperty('--y', `${Math.sin(angle) * distance}px`);
-        fragment.style.animation = 'explode 1s ease-out forwards';
+        fragment.style.animation = 'fragmentExplode 1.5s ease-out forwards';
         explosion.appendChild(fragment);
     }
     setTimeout(() => {
         explosion.innerHTML = '';
-    }, 1000);
+    }, 1500);
 }
